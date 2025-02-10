@@ -69,6 +69,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+        'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "innovate_x_backend.urls"
@@ -143,3 +144,24 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Add STATIC_ROOT setting
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"  # This is where static files will be collected in production
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+
+STATIC_URL = "static/"
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Allow requests from React
+]

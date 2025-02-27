@@ -13,7 +13,7 @@ SECRET_KEY = "django-insecure-f-72&*m@-06s33a%n@8wy4ydd0*w^4z02nzfyemnoli8r#hll3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://innovate-x-lab-backend.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

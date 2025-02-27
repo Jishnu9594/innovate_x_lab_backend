@@ -150,9 +150,10 @@ class JobPosition(Main):
 
 
 class JobApplication(Main):
-    job = models.ForeignKey(JobPosition, on_delete=models.CASCADE, related_name="applications",blank=True,null=True)
+    job = models.ForeignKey(JobPosition, on_delete=models.CASCADE, related_name="applications")
     name = models.CharField(max_length=255,blank=True,null=True)
     email = models.EmailField(blank=True,null=True)
+    phone = models.CharField(max_length=255,blank=True,null=True)
     resume = models.FileField(upload_to="resumes/", blank=True, null=True)
     applied_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)
 
@@ -163,4 +164,5 @@ class JobApplication(Main):
         verbose_name_plural = 'JobApplications'
 
     def __str__(self):
-        return f"{self.name} - {self.job.title}"
+        job_title = self.job.title if self.job else "No Job Assigned"
+        return f"{self.name} - {job_title}"
